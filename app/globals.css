@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-neutral-50 text-body antialiased;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-hover ring-offset-2 ring-offset-neutral-50;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-white shadow-card transition-all duration-200;
+  }
+
+  a.card:hover {
+    @apply -translate-y-0.5 border-hover/40 shadow-card-hover;
+  }
+
+  .icon-chip {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-xl text-accent;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.14em] text-accent;
+  }
+
+  .section-title {
+    @apply text-xl font-bold text-heading;
+  }
+
+  .btn-primary {
+    @apply items-center justify-center gap-2 rounded-full bg-heading px-6 py-2.5 font-medium text-white shadow-sm transition-colors hover:bg-accent;
+  }
+
+  .nav-link {
+    @apply -mb-px block border-b-2 border-transparent py-4 text-muted transition-colors hover:text-accent;
+  }
+
+  .nav-link-active {
+    @apply border-accent font-semibold text-heading;
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-50 rounded-full bg-heading px-4 py-2 text-sm text-white;
+  }
+
+  .cover-placeholder {
+    background-color: #0f5533;
+    background-image:
+      radial-gradient(circle at 15% 120%, rgb(29 191 115 / 0.45), transparent 55%),
+      radial-gradient(circle at 85% -20%, rgb(29 191 115 / 0.3), transparent 50%),
+      linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: auto, auto, 32px 32px, 32px 32px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
