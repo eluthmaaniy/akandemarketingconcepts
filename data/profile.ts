@@ -10,7 +10,10 @@ export const profile = {
   avatar:
     'https://res.cloudinary.com/dr83qj6bf/image/upload/v1793690783/IMG-20261102-WA0001_cn28jg.jpg',
   /** Set to an image URL to replace the cover placeholder. */
-  coverImage: null as string | null,
+  coverImage:
+    'https://res.cloudinary.com/dr83qj6bf/image/upload/v1793711189/IMG-20261103-WA0058_cjilvh.jpg' as
+      | string
+      | null,
   siteUrl: 'https://akandemarketingconcepts.com',
   about: {
     headline: 'Your Store Deserves More Than Just Traffic. It Deserves Growth.',

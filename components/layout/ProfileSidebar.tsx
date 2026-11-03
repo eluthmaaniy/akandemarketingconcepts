@@ -6,10 +6,12 @@ export default function ProfileSidebar() {
   return (
     <aside
       aria-label="Profile"
-      className="relative lg:sticky lg:top-6 lg:col-span-4 lg:-mt-24 lg:self-start xl:col-span-3"
+      className={`relative lg:sticky lg:top-6 lg:col-span-4 lg:self-start xl:col-span-3 ${
+        profile.coverImage ? '' : 'lg:-mt-24'
+      }`}
     >
       <div className="lg:rounded-card lg:border lg:border-line lg:bg-white lg:p-6 lg:shadow-card">
-        <div className="absolute -top-16 left-0 lg:static">
+        <div className={profile.coverImage ? 'pt-6 lg:pt-0' : 'absolute -top-16 left-0 lg:static'}>
           <Image
             src={profile.avatar}
             alt="Akande Marketing Concepts profile photo"
@@ -19,7 +21,7 @@ export default function ProfileSidebar() {
             className="h-28 w-28 rounded-full border-4 border-white bg-white object-cover object-top shadow-md ring-2 ring-hover sm:h-32 sm:w-32"
           />
         </div>
-        <div className="pt-16 sm:pt-20 lg:pt-5">
+        <div className={profile.coverImage ? 'pt-4 lg:pt-5' : 'pt-16 sm:pt-20 lg:pt-5'}>
           <h1 className="text-2xl font-bold leading-tight text-heading">{profile.name}</h1>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-body">{profile.tagline}</p>
 
