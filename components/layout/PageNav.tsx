@@ -1,17 +1,23 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const links = [
   { id: 'about', label: 'About' },
-  { id: 'portfolio', label: 'Portfolio' },
+  { id: 'reviews', label: 'Reviews' },
   { id: 'contact', label: 'Contact' },
 ];
 
 export default function PageNav() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [active, setActive] = useState('about');
+  const current = isHome ? active : pathname.startsWith('/reviews') ? 'reviews' : null;
 
   useEffect(() => {
+    if (!isHome) return;
+
     const sections = links
       .map((l) => document.getElementById(l.id))
       .filter((el): el is HTMLElement => el !== null);
@@ -38,7 +44,7 @@ export default function PageNav() {
       observer.disconnect();
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [isHome]);
 
   return (
     <nav
@@ -46,18 +52,21 @@ export default function PageNav() {
       className="sticky top-0 z-20 -mx-4 border-b border-line bg-neutral-50/90 px-4 backdrop-blur lg:mx-0 lg:px-0"
     >
       <ul className="no-scrollbar flex gap-6 overflow-x-auto whitespace-nowrap text-sm font-medium md:gap-8 md:text-base">
-        {links.map((link) => (
-          <li key={link.id}>
-            <a
-              href={`#${link.id}`}
-              onClick={() => setActive(link.id)}
-              aria-current={active === link.id ? 'true' : undefined}
-              className={`nav-link ${active === link.id ? 'nav-link-active' : ''}`}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {links.map((link) => {
+          const isActive = current === link.id;
+          return (
+            <li key={link.id}>
+              <a
+                href={isHome ? `#${link.id}` : `/#${link.id}`}
+                onClick={isHome ? () => setActive(link.id) : undefined}
+                aria-current={isActive ? (isHome ? 'true' : 'page') : undefined}
+                className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

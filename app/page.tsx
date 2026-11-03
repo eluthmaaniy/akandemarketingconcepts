@@ -1,10 +1,11 @@
+import Link from 'next/link';
 import AboutSection, { SkillsSection } from '@/components/sections/AboutSection';
 import CertificationsSection from '@/components/sections/CertificationsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import EducationSection from '@/components/sections/EducationSection';
 import TrustBadges from '@/components/sections/TrustBadges';
 import VideoGrid from '@/components/video/VideoGrid';
-import { testimonialVideos, workVideos } from '@/data/videos';
+import { featuredWorkVideos, testimonialVideos, workVideos } from '@/data/videos';
 
 export default function HomePage() {
   return (
@@ -27,14 +28,18 @@ export default function HomePage() {
         <CertificationsSection />
       </section>
 
-      <section id="portfolio" aria-labelledby="portfolio-heading" className="scroll-mt-20">
-        <h2 id="portfolio-heading" className="section-eyebrow">
-          Portfolio
+      <section id="reviews" aria-labelledby="reviews-heading" className="scroll-mt-20">
+        <h2 id="reviews-heading" className="section-eyebrow">
+          Reviews
         </h2>
         <p className="mt-3 text-2xl font-bold text-heading">Video Reviews of My Work</p>
         <div className="mt-6">
-          <VideoGrid videos={workVideos} />
+          <VideoGrid videos={featuredWorkVideos} />
         </div>
+        <Link href="/reviews" className="btn-primary mt-8 inline-flex">
+          View all video reviews ({workVideos.length})
+          <i className="ri-arrow-right-line" aria-hidden="true" />
+        </Link>
       </section>
 
       <ContactSection />

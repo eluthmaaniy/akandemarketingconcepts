@@ -99,4 +99,10 @@ export const videos: Video[] = [
 export const testimonialVideos = videos.filter((v) => v.category === 'testimonial');
 export const workVideos = videos.filter((v) => v.category === 'work');
 
+const featuredWorkIds = ['9fx6tXVrVpw', 'AIJeaMhjC00', 'YQWIbSylB-U', 'xpxyPryv3KA'];
+
+export const featuredWorkVideos = featuredWorkIds
+  .map((id) => workVideos.find((v) => v.id === id))
+  .filter((v): v is Video => v !== undefined);
+
 export const youtubeUrl = (id: string) => `https://youtu.be/${id}`;

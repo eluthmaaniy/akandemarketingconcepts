@@ -12,6 +12,9 @@ export default function AboutSection() {
           <p key={p}>{p}</p>
         ))}
       </div>
+      <a href="#contact" className="btn-primary mt-6 inline-flex">
+        <i className="ri-whatsapp-line text-lg leading-none" aria-hidden="true" /> Contact me
+      </a>
     </div>
   );
 }

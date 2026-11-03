@@ -25,9 +25,23 @@ export default function YouTubeCard({ video }: { video: Video }) {
   };
 
   return (
-    <figure className="group flex h-full flex-col">
+    <figure className="group flex h-full flex-col rounded-card border border-line bg-white p-2 shadow-card transition-shadow duration-200 hover:shadow-card-hover">
+      {!portrait && (
+        <div className="flex items-center gap-3 px-1.5 pb-2 pt-0.5" aria-hidden="true">
+          <span className="flex shrink-0 gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-neutral-300" />
+            <span className="h-2 w-2 rounded-full bg-neutral-300" />
+            <span className="h-2 w-2 rounded-full bg-neutral-300" />
+          </span>
+          <span className="flex min-w-0 flex-1 items-center justify-center gap-1 truncate rounded-full bg-neutral-100 px-3 py-0.5 text-[11px] text-muted">
+            <i className="ri-youtube-fill text-xs text-red-500" />
+            <span className="truncate">youtube.com</span>
+          </span>
+          <span className="w-[30px] shrink-0" />
+        </div>
+      )}
       <div
-        className={`relative w-full overflow-hidden rounded-card bg-heading shadow-card ${
+        className={`relative w-full overflow-hidden rounded-lg bg-heading ${
           portrait ? 'aspect-[9/16]' : 'aspect-video'
         }`}
       >
@@ -61,7 +75,7 @@ export default function YouTubeCard({ video }: { video: Video }) {
           </button>
         )}
       </div>
-      <figcaption className="mt-3 flex items-start justify-between gap-2">
+      <figcaption className="flex flex-1 items-start justify-between gap-2 px-1.5 pb-1.5 pt-3">
         <span className="text-sm font-medium leading-snug text-heading">{video.title}</span>
         <a
           href={youtubeUrl(video.id)}

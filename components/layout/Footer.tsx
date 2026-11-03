@@ -10,7 +10,7 @@ export default function Footer() {
           &copy; {year} {profile.name}. All rights reserved.
         </p>
         <p className="text-xs text-white/70">
-          Website by{' '}
+          Built by{' '}
           <a
             href="https://eltemur.com/"
             target="_blank"

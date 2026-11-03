@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import OnlineStatus from '@/components/sections/OnlineStatus';
 import { profile } from '@/data/profile';
 
 export default function ProfileSidebar() {
@@ -39,9 +40,9 @@ export default function ProfileSidebar() {
             </div>
           </dl>
 
-          <a href="#contact" className="btn-primary mt-5 inline-flex lg:mt-6 lg:flex lg:w-full">
-            <i className="ri-phone-line" aria-hidden="true" /> Contact me
-          </a>
+          <div className="mt-5 max-w-xs border-t border-line pt-4 lg:max-w-none">
+            <OnlineStatus />
+          </div>
         </div>
       </div>
     </aside>

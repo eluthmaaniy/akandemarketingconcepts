@@ -15,19 +15,28 @@ export const siteMetadata = {
   appleIcon: cloudinary('c_fill,g_face,w_180,h_180,f_png'),
 };
 
-export function createMetadata(): Metadata {
-  const { defaultTitle: title, defaultDescription: description } = siteMetadata;
+interface PageMetadata {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+export function createMetadata({
+  title = siteMetadata.defaultTitle,
+  description = siteMetadata.defaultDescription,
+  path = '/',
+}: PageMetadata = {}): Metadata {
   return {
     metadataBase: new URL(siteMetadata.url),
     title,
     description,
-    alternates: { canonical: '/' },
+    alternates: { canonical: path },
     openGraph: {
       type: 'website',
       siteName: siteMetadata.siteName,
       title,
       description,
-      url: '/',
+      url: path,
       images: [{ url: siteMetadata.ogImage, width: 1200, height: 630, alt: profile.name }],
     },
     twitter: {

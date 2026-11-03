@@ -3,6 +3,10 @@ export const profile = {
   tagline: 'Shopify growth, Google Shopping, SEO, CRO and marketing automation for e-commerce brands.',
   locations: ['Canada', 'Nigeria'],
   languages: ['English', 'French'],
+  timezones: [
+    { label: 'Nigeria', timeZone: 'Africa/Lagos' },
+    { label: 'Canada', timeZone: 'America/Vancouver' },
+  ],
   avatar:
     'https://res.cloudinary.com/dr83qj6bf/image/upload/v1793690783/IMG-20261102-WA0001_cn28jg.jpg',
   /** Set to an image URL to replace the cover placeholder. */
@@ -17,8 +21,18 @@ export const profile = {
   },
   contact: {
     phones: [
-      { label: '+2347057146447', href: 'tel:+2347057146447', country: 'Nigeria' },
-      { label: '+1 (236) 233-2565', href: 'tel:+12362332565', country: 'Canada' },
+      {
+        label: '+2347057146447',
+        href: 'tel:+2347057146447',
+        whatsapp: 'https://wa.me/2347057146447',
+        country: 'Nigeria',
+      },
+      {
+        label: '+1 (236) 233-2565',
+        href: 'tel:+12362332565',
+        whatsapp: 'https://wa.me/12362332565',
+        country: 'Canada',
+      },
     ],
     youtube: {
       label: '@akandemarketingconcepts',

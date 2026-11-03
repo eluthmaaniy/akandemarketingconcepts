@@ -1,6 +1,6 @@
 # Akande Marketing Concepts — Portfolio Website
 
-Single-page profile site for [akandemarketingconcepts.com](https://akandemarketingconcepts.com). Sections: About (with client testimonial videos, trusted partners, skills, education, certifications), Portfolio (work videos) and Contact.
+Profile site for [akandemarketingconcepts.com](https://akandemarketingconcepts.com). The homepage has About (with client testimonial videos, trusted partners, skills, education, certifications), Reviews (featured work videos) and Contact (WhatsApp form and contact cards). `/reviews` lists every work video.
 
 ## Tech stack
 
@@ -21,8 +21,8 @@ npm run build
 
 All content lives in `data/`:
 
-- `data/profile.ts`: name, tagline, locations, languages, About copy, phone numbers, YouTube channel, skills, trusted partners
-- `data/videos.ts`: YouTube videos. `category` is `testimonial` (About, "Happy Clients in Their Own Words") or `work` (Portfolio, "Video Reviews of My Work"). Set `orientation` to the video's real aspect (`portrait` or `landscape`).
+- `data/profile.ts`: name, tagline, locations, languages, `timezones` (local times shown next to the "Online" status), About copy, phone numbers with their `whatsapp` links (used by the contact cards and form), YouTube channel, skills, trusted partners
+- `data/videos.ts`: YouTube videos. `category` is `testimonial` (About, "Happy Clients in Their Own Words") or `work` (Reviews, "Video Reviews of My Work"). Set `orientation` to the video's real aspect (`portrait` or `landscape`). The homepage shows only the work videos listed in `featuredWorkVideos`; `/reviews` shows all of them.
 - `data/education.ts`, `data/certifications.ts`
 
 ### Replacing the cover image

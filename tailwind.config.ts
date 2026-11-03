@@ -25,6 +25,15 @@ const config: Config = {
         card: '0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06)',
         'card-hover': '0 6px 16px -4px rgb(0 0 0 / 0.12)',
       },
+      keyframes: {
+        nudge: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(3px)' },
+        },
+      },
+      animation: {
+        nudge: 'nudge 1.4s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

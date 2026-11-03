@@ -1,3 +1,4 @@
+import SwipeStrip from '@/components/video/SwipeStrip';
 import YouTubeCard from '@/components/video/YouTubeCard';
 import type { Video } from '@/data/videos';
 
@@ -18,13 +19,13 @@ export default function VideoGrid({ videos }: { videos: Video[] }) {
         </ul>
       )}
       {portrait.length > 0 && (
-        <ul className="no-scrollbar -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+        <SwipeStrip>
           {portrait.map((video) => (
             <li key={video.id} className="w-[42vw] max-w-[220px] shrink-0 snap-start sm:w-auto sm:max-w-none">
               <YouTubeCard video={video} />
             </li>
           ))}
-        </ul>
+        </SwipeStrip>
       )}
     </div>
   );
